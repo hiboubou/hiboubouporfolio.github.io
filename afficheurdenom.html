@@ -1,0 +1,75 @@
+<!-- Travaille 2 - Afficheur de nom -->
+<!--Coder par 'M'-->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Afficheur de nom</title>
+  <link rel="stylesheet" href="main/css/styles.css">
+  <style></style>
+</head>
+<body>
+  <h1>Afficheur de nom</h1>
+  <!-- Calculatrice pour le modulo -->
+  <form>
+    <!--Saisir le prénom, nom du milieu et nom de famille-->
+    <label for="prenom">Insère ton prénom</label>
+    <input type="text" id="prenom">
+    <br><br>
+    <label for="milieu">Insère ton nom du milieu</label>
+    <input type="text" id="milieu">
+    <br><br>
+    <label for="famille">Insère ton nom de famille</label>
+    <input type="text" id="famille">
+    
+    <br><br>
+    
+    <!-- Bouton pour soumettre les données -->
+    <input type="button" id="btnSoumet" onclick="initiaux()"  value="Initiaux">
+    <input type="button" id="btnSoumet" onclick="complet()"  value="Nom complet">
+    <input type="button" id="btnSoumet" onclick="utilisateur()"  value="Nom d'utilisateur">
+    
+    <!-- Création d'une section pour l'affichage des résultats -->
+    <div id="divAffiche">
+    </div>
+    
+    <script>
+      var affiche = document.getElementById("divAffiche");
+      var resultat;
+      //Affiche les initiaux
+      function initiaux() {
+        //Entrées
+        var prenom = document.getElementById("prenom").value.toUpperCase();
+        var milieu = document.getElementById("milieu").value.toUpperCase();
+        var famille = document.getElementById("famille").value.toUpperCase();
+        
+        //Les initiaux
+        resultat = "<br>Initiales : " +prenom.charAt(0) +". " +milieu.charAt(0) +". " +famille.charAt(0) +".";
+        affiche.innerHTML = resultat;
+        }
+      //Nom complet
+      function complet() {
+        //Entrées
+        var prenom = document.getElementById("prenom").value.toLowerCase();
+        var milieu = document.getElementById("milieu").value.toLowerCase();
+        var famille = document.getElementById("famille").value.toLowerCase();
+        
+        //Nom complet
+        resultat = "<br>Nom complet : " +prenom.slice(0,1).toUpperCase() +prenom.slice(1) +" " +milieu.slice(0,1).toUpperCase() +milieu.slice(1) +" " +famille.slice(0,1).toUpperCase() +famille.slice(1)
+        affiche.innerHTML = resultat;
+      }
+      //Affiche le nom d'utilisateur
+      function utilisateur() {
+        //Entrées
+        var prenom = document.getElementById("prenom").value.toLowerCase();
+        var milieu = document.getElementById("milieu").value.toLowerCase();
+        var famille = document.getElementById("famille").value.toLowerCase();
+        
+        //Le nom d'utilisateur
+        resultat = "<br>Nom d'utilisateur : " +prenom.slice(0,1) +milieu.slice(0,1) +famille
+        affiche.innerHTML = resultat;
+      }
+    </script>
+  </form>
+</body>
+</html>
