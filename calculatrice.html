@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <meta charset="UTF-8">
+    <title>Calculatrice</title>
+    <link rel="stylesheet" href="main/css/styles.css">
+    <style></style>
+  </head>
+  
+  <body>
+	<header class="header">
+		  <h1>Calculatrice</h1>
+		  <div class="menu">
+        <h3>
+	  <a href="porfolio.html">Porfolio</a>
+        </h3>
+      </div>
+	<!--Flèche vers l'accueil; Source de l'idée: https://www.w3schools.com/css/css_positioning.asp-->
+		<a href="index.html"><img src="images/fleche.png" class="fleche"></a>
+	  </header>
+	  
+      <br><br>
+	  <div class="haut"></div>
+  
+  <!-- Form pour Calculatrice -->
+  <form>
+    <!--Saisir le choix d'opération avec boutons radio-->
+    <label for="choix">Choisi ton opération</label>
+    <input type="radio" name="choix" value="+" checked> +
+    <input type="radio" name="choix" value="-"> -
+    <input type="radio" name="choix" value="*"> *
+    <input type="radio" name="choix" value="/"> /
+    <input type="radio" name="choix" value="%"> %
+    <input type="radio" name="choix" value="**"> **
+    
+    <br><br>
+    
+    <!-- Boîte de text pour le premier nombre -->
+    <label for="nombre1">Entre le premier nombre : </label>
+    <input type="text" id="nombre1">
+    <br><br>
+    <!-- Boîte de text pour le premier nombre -->
+    <label for="nombre2">Entre le deuxième nombre : </label>
+    <input type="text" id="nombre2">
+    <br><br>
+
+    <!-- Bouton pour soumettre les données -->
+    <input type="button" id="btnSoumet" onclick="calculatrice()"  value="Soumettre et calculer">
+    
+    <!-- Création d'une section pour l'affichage des résultats -->
+    <div id="divAffiche">
+    </div>
+    
+    <script>
+        function calculatrice() {
+            //Trouve les données dans le formulaire
+            var operationChoisi = document.getElementsByName("choix");
+            var operation = "";
+            for(var i = 0; i < operationChoisi.length; i++) {
+                if(operationChoisi[i].checked){
+                    operation = operationChoisi[i].value;
+                }
+            }
+            console.log(operation);
+            var nombreUn = parseFloat(document.getElementById("nombre1").value);
+            var nombreDeux = parseFloat(document.getElementById("nombre2").value);
+            var affiche = document.getElementById("divAffiche");
+            
+            //Calcule basé sur l'opération choisi
+            var calcule = 0;
+            switch(operation) {
+                case "+":
+                    calcule = nombreUn + nombreDeux;
+                    break;
+                case "-":
+                    calcule = nombreUn - nombreDeux;
+                    break;
+                case "*":
+                    calcule = nombreUn * nombreDeux;
+                    break;
+                case "/":
+                    calcule = nombreUn / nombreDeux;
+                    break;
+                case "%":
+                    calcule = nombreUn % nombreDeux;
+                    break;
+                case "**":
+                    calcule = nombreUn ** nombreDeux;
+                    break;
+            }
+                
+            //Affiche le résultat
+            var resultat = "<br><br> Le modulo de tes entrées est de : " +calcule;
+            affiche.innerHTML = resultat;
+        }
+    </script>
+  </form>
+  </body>
+  
+</html>
