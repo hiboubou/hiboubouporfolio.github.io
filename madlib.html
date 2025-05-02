@@ -1,0 +1,79 @@
+<!-- Travaille 4 - MadLib -->
+<!-- Madlib trouver içi: https://www.teacherspayteachers.com/Product/Mad-Lib-in-French-the-routine-vocabulary-10794181 -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Madlib</title>
+</head>
+<body>
+  <h1>Madlib</h1>
+  <form>
+    <!-- Demande pour toute les parties de madlib -->
+    <label for="nomPrincipal">Entre un nom propre:</label>
+      <input type="text" id="nomPrincipal">
+    <br><br>
+    <label for="objetPrincipal">Entre un nom commun au masculin singulier:</label>
+      <input type="text" id="objetPrincipal">
+    <br><br>
+    <label for="verbeUn">Entre un verbe à l'infinitif:</label>
+      <input type="text" id="verbeUn">
+    <br><br>
+    <label for="verbeDeux">Entre un autre verbe à l'infinitif:</label>
+      <input type="text" id="verbeDeux">
+    <br><br>
+    <label for="maitreUn">Entre un autre nom propre:</label>
+      <input type="text" id="maitreUn">
+    <br><br>
+    <label for="maitreDeux">Entre un troisière nom propre:</label>
+      <input type="text" id="maitreDeux">
+    <br><br>
+    <label for="verbeTrois">Entre un autre verbe congugé au présent:</label>
+      <input type="text" id="verbeTrois">
+    <br><br>
+    <label for="adverbe">Entre un adverbe de manière:</label>
+      <input type="text" id="adverbe">
+    <br><br>
+    <label for="nomFem">Entre un nom féminin singulier:</label>
+      <input type="text" id="nomFem">
+    <br><br>
+    <label for="chambre">Entre une pièce dans une maison avec l'article défini:</label>
+      <input type="text" id="chambre">
+    <br><br>
+    <label for="verbeQuatre">Entre un autre verbe congugé au présent:</label>
+      <input type="text" id="verbeQuatre">
+    <br><br>
+    <label for="adjNom">Entre un nom avec un adjectif possessif:</label>
+      <input type="text" id="adjNom">
+    <br><br>
+    
+    <!-- Bouton pour soumettre les données -->
+    <input type="button" id="btnSoumet" onclick="genereMadLib()"  value="Génère ton MadLib!">
+
+    <!-- Création d'une section pour l'affichage des résultats -->
+    <div id="divAffiche">
+    </div>
+    
+    <script>
+      //Affiche la correction
+      function genereMadLib() {
+        var affiche = document.getElementById("divAffiche");
+        var madLib = "Bonjour, je m’appelle ";
+        
+        //Prend les entrées et les insèrés dans le texte plus ou moins une phrase à la fois
+        madLib += document.getElementById("nomPrincipal").value +" et je suis un " +document.getElementById("objetPrincipal").value +". Eh oui, je peux parler! ";
+        madLib += "Je peux aussi " +document.getElementById("verbeUn").value +" et " +document.getElementById("verbeDeux").value +". ";
+        madLib += "Souvent, à 5h, quand mes maîtres " +document.getElementById("maitreUn").value +" et " +document.getElementById("maitreDeux").value +" " +document.getElementById("verbeTrois").value +", j'aime ";
+        madLib += document.getElementById("verbeDeux").value +" " +document.getElementById("adverbe").value +". <br>"
+        madLib += "Quelle " +document.getElementById("nomFem").value +" pour eux! Ensuite, je vais dans "
+        madLib += document.getElementById("chambre").value +" et je " +document.getElementById("verbeQuatre").value +". "
+        madLib += "Le reste de la journée, je dors avec  mon toutou dans " +document.getElementById("adjNom").value +". "
+        madLib += "C'est vraiment bien la vie de " +document.getElementById("objetPrincipal").value +"!"
+        
+        //Renvoyer le MadLib
+        affiche.innerHTML = madLib;
+      }
+    </script>
+  </form>
+</body>
+</html>
