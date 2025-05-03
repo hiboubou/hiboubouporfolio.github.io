@@ -16,3 +16,22 @@ a {
   left: 5%;
   padding: 5px;
 }
+.formulaire {
+  position: relative; 
+  float: left;
+  left: 10%;
+  width: 50%;
+  padding: 10px;
+  border: 3px solid #27b0b0;
+  background-color: #fbffed;
+}
+.resultat {
+  width: 25%;
+  padding: 10px;
+  margin: 10px;
+  position: relative;
+  left: 10%;
+  float: left;
+  border: 3px solid #27b0b0;
+  background-color: #fbffed;
+}
