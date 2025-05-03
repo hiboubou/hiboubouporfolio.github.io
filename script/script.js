@@ -36,6 +36,6 @@ function calculatrice() {
         }
         
         //Affiche le résultat
-        var resultat = "<br><br> Le modulo de tes entrées est de : " +calcule;
+        var resultat = "Le résultat de " +nombreUn +operation +nombreDeux +" est de : " +calcule;
         affiche.innerHTML = resultat;
         }
