@@ -2,9 +2,9 @@ body{
   background-color: #d6fabb;
 }
 h1 {
-	color: #173600;
-	text-align: center;
-	font-size: 40px;
+  color: #173600;
+  text-align: center;
+  font-size: 40px;
 }
 a {
   color: #c3ff00;
@@ -15,6 +15,7 @@ a {
   position: relative;
   left: 5%;
   padding: 5px;
+  margin: 20px;
 }
 .formulaire {
   position: relative; 
