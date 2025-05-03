@@ -1,15 +1,17 @@
 <!-- Travaille 3 - Quiz -->
+<!-- Coder par 'M' -->
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <title>Quiz</title>
   <link rel="stylesheet" href="css/styles.css">
-  <style></style>
 </head>
 <body>
-  <h1>Quiz ICS</h1>
-  <form>
+  <div class="titre">
+    <h1>Quiz ICS</h1>
+  </div>
+  <form class="formulaire">
     <!--Demander de selectionner la réponse avec un select-->
     <label for="balise">Quel balise crée une boucle avec une variable intégrer</label>
     <select id="balise">
@@ -32,50 +34,49 @@
     <!-- Demander pour le mot clé (console.log)-->
     <label for="mot">Quel est le mot clé pour une sortie sur le côté de la console?</label>
     <input type="text" id="mot"> <br><br>
-
+    
     <!-- Bouton pour soumettre les données -->
     <input type="button" id="btnSoumet" onclick="corrige()"  value="Soumet et corrige">
-
-    <!-- Création d'une section pour l'affichage des résultats -->
-    <div id="divAffiche">
-    </div>
+  </form>
+  <!-- Création d'une section pour l'affichage des résultats -->
+  <div id="divAffiche" class="resultat">
+  </div>
     
-    <script>
-      //Affiche la correction
-      function corrige() {
-        var affiche = document.getElementById("divAffiche");
-        var pourcentage = 0;
-        var balises = document.getElementById("balise").value;
-        var langues = document.getElementsByName("language");
-        var motCle = document.getElementById("mot").value;
-        
-        //Correction du select
-        if(balises == "for"){
-          pourcentage += 33;
-        }
-        
-        //Correction des langues sélectionnées
-        for(var i=0; i<langues.length; i++) {
-          if (langues[i].checked){
-            if ((langues[i].value == "Javascript") || (langues[i].value == "CSS") || (langues[i].value == "HTML")) {
-              pourcentage += 11;
-            } else {
-              pourcentage -= 5; 
-            }
+  <script>
+    //Affiche la correction
+    function corrige() {
+      var affiche = document.getElementById("divAffiche");
+      var pourcentage = 0;
+      var balises = document.getElementById("balise").value;
+      var langues = document.getElementsByName("language");
+      var motCle = document.getElementById("mot").value;
+      
+      //Correction du select
+      if(balises == "for"){
+        pourcentage += 33;
+      }
+      
+      //Correction des langues sélectionnées
+      for(var i=0; i<langues.length; i++) {
+        if (langues[i].checked){
+          if ((langues[i].value == "Javascript") || (langues[i].value == "CSS") || (langues[i].value == "HTML")) {
+            pourcentage += 11;
+          } else {
+            pourcentage -= 5; 
           }
         }
-        
-        //Correction dernière question
-        if(motCle == "console.log"){
-          pourcentage += 34;
-        }
-            
-        //Renvoie le resultat
-        var resultat = "Voici ton resultat: " +pourcentage;
-        var corriger = "Le corriger est: Q1: for, Q2: Javascript, CSS et HTML, Q3: console.log"
-        affiche.innerHTML = resultat +"<br><br>" +corriger;
       }
-    </script>
-  </form>
+      
+      //Correction dernière question
+      if(motCle == "console.log"){
+        pourcentage += 34;
+      }
+      
+      //Renvoie le resultat
+      var resultat = "Voici ton resultat: " +pourcentage;
+      var corriger = "Le corriger est: Q1: for, Q2: Javascript, CSS et HTML, Q3: console.log"
+      affiche.innerHTML = resultat +"<br><br>" +corriger;
+    }
+  </script>
 </body>
 </html>
