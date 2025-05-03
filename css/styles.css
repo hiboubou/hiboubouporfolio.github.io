@@ -1,1 +1,18 @@
-
+body{
+  background-color: #d6fabb;
+}
+h1 {
+	color: #173600;
+	text-align: center;
+	font-size: 40px;
+}
+a {
+  color: #c3ff00;
+}
+.titre {
+  background-color: #fbffed;
+  width: 90%;
+  position: relative;
+  left: 5%;
+  padding: 5px;
+}
